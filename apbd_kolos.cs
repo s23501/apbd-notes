@@ -1,3 +1,5 @@
+19:54 - zrobilem migracje
+
 
 //--------------------------------------------------
 //// .gitignore
@@ -30,7 +32,7 @@ first create:
 
 //// POWERSHELL
 dotnet tool install --global dotnet-ef
-dotnet ef migrations add my_migration_name
+dotnet ef migrations add MyMigrationName
 dotnet ef migrations remove
 dotnet ef database update 
 dotnet ef database drop
