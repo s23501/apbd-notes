@@ -1,0 +1,33 @@
+    EF commands
+
+CLI:
+dotnet tool install --global dotnet-ef
+dotnet ef migrations add $MigrationName
+dotnet ef migrations remove
+dotnet ef database update
+dotnet ef database drop
+
+NPM: 
+Add-Migration YourMigrationName
+Update-Database
+
+    Creating DAO
+
+[Key] - set primary key annotation
+public int Id { get; set; }
+
+[PrimaryKey(nameof(IdMedicament), nameof(IdPrescription))] - set primary keys if needed more than one (association class)
+
+[MaxLength(100)] - set max length
+public string FirstName { get; set; } = null!;
+
+? - set nullable
+public int? Dose { get; set; }
+
+public int IdMedicament { get; set; }
+[ForeignKey(nameof(IdMedicament))] - add foreign key
+public virtual Medicament Medicament { get; set; } = null!;
+
+public virtual ICollection<PrescriptionMedicament> PrescriptionMedicaments { get; set; } = new List<PrescriptionMedicament>(); - podlacz zewnetrzne klasy do asocjacyjnej
+
+[Precision(10, 2)] - numbers
